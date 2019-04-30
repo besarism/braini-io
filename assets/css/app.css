@@ -2126,8 +2126,9 @@ hr {
     text-align: center;
 }
 .client-content-logo .list-inline-item{
-    margin-right: 4px;
-    margin-left: 4px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
 }
 .client-content-logo.list-inline-item:not(:last-child) {
     margin-right: 0;
