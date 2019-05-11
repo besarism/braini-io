@@ -1004,6 +1004,14 @@ hr {
     position: relative;
     background: url("../../assets/images/logo/intro-section.jpg") no-repeat scroll right top / cover;
 }
+.portfolio-header {
+    min-height: 250px;
+    padding: 50px 0 50px;
+    margin-bottom: 40px;
+    position: relative;
+    background: url("../../assets/images/logo/portfolio-header-img.jpg") no-repeat scroll right top / cover;
+}
+
 .page-header::before {
     content: "";
     height: 100%;
@@ -1014,6 +1022,17 @@ hr {
     background: #313a44;
     opacity: .85;
 }
+.portfolio-header::before {
+    content: "";
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    background: #313a44;
+    opacity: .85;
+}
+
 .page-header-tag {
     color: #fff;
     font-size: 20px;
@@ -1548,7 +1567,7 @@ hr {
 }
 .blog-page-1 .blog-post .blog-details {
     padding: 35px 40px;
-    min-height: 325px;
+    min-height: 125px; /* think about this */
 }
 .blog-page-1 .blog-post .blog-details .list-inline {
     margin: 0;
