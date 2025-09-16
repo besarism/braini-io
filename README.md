@@ -1,188 +1,170 @@
-# Agency Jekyll Theme
-[![RubyGems Downloads](https://img.shields.io/gem/dt/jekyll-agency?label=gem%20downloads)](https://rubygems.org/gems/jekyll-agency)
-[![LICENSE](https://img.shields.io/badge/license-MIT-blue)](/LICENSE.txt)
-[![Tip Me via PayPal](https://img.shields.io/badge/PayPal-tip_me-green?logo=paypal)](https://www.paypal.me/raviriley)
-[![template button](https://img.shields.io/badge/Generate_theme_from_template-2ea44f)][generate]
-[![Featured on Jekyll-Themes.com](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com/agency-jekyll-theme/)
+# proj0.io
 
-## Preview - click for live demo
+A premium single-page portfolio site built with Jekyll Agency Theme, showcasing app development, cloud infrastructure, and digital growth services.
 
-[![screenshot](/screenshot.PNG)][demo-page]
+## 🚀 Quick Start
 
-## Warning
+### Local Development
 
-> :warning: **Notice for those using legacy Formspree contact forms:** :warning:
->
-> Email-based forms are being [phased out](https://help.formspree.io/hc/en-us/articles/360056076314) by Formspree. [#11](https://github.com/raviriley/agency-jekyll-theme/pull/11) updated this theme to use the [new Formspree structure](https://help.formspree.io/hc/en-us/articles/360017735154-How-to-prevent-spam). Click [here](https://help.formspree.io/hc/en-us/articles/360056076314) for instructions on updating your site's form.
-
-## About
-
-This is the [Agency Bootstrap theme](https://startbootstrap.com/themes/agency/), converted to a gem-based Jekyll theme with GitHub Pages support.
-
-While this has been done before, [here](https://github.com/y7kim/agency-jekyll-theme), [here](https://github.com/SotiriosVrachas/jekyll-theme-startbootstrap-agency), and [here](https://github.com/laklau/agency-jekyll-theme/), these are outdated and have not been updated or maintained for years. I built this theme from the most recent Bootstrap source.
-
-I also added a lot of new features that go beyond the original theme's capabilities:
-
-- GitHub Pages support
-- [template repo][template] to get up and running in minutes
-- contact form functionality powered by [Formspree.io](https://formspree.io)
-- multiple language support (currently English, Spanish, & German)
-- custom pages
-- 404 page
-- legal/Privacy Policy page
-- Google Analytics support
-- Markdown support
-- custom images
-- logo support (instead of just title text)
-- automatically updating copyright years
-- custom navigation bar, even without the header image(s)
-- customizable footer
-- custom accent color and dark/light colors
-- horizontal scrolling support for client section
-<!--
-- custom colors with automatic gradient generation (coming soon)
-- site title logo text font customization (coming soon)
-- horizontal scrolling support for portfolio section (coming soon)
-- about section (different from the timeline) -->
-
-The Jekyll structure of this theme includes:
-
-- `_portfolio` files - what generate the portfolio grid. YAML front matter handles all the details
-- the `page` layout allows custom pages, as seen in the legal and 404 pages
-- `sitetext.yml` enables complete customization of all site text
-- `navigation.yml` enables fully customizable navigation
-- `style.yml` enables fully customizable colors, background images, and other style-related things
-
-**If you enjoy this theme, please consider [supporting me](https://www.paypal.me/raviriley) to continue developing and maintaining it.**
-
-<div align="center">
-
-[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/raviriley)
-
-</div>
-
-## Installation
-
-There are three ways to install this theme:
-
-1. As a gem-based theme
-2. Use the [starter template][template] (best for GitHub Pages)
-3. As a remote theme
-
-#### 1. Gem-based Theme Installation
-
-Replace the contents of your `_config.yml` file with the sample [\_config.yml](https://raw.githubusercontent.com/raviriley/agency-jekyll-theme/master/_config.yml).
-
-Install the gem with:
-
-```sh
-$ bundle add jekyll-agency
+1. Install Jekyll and dependencies:
+```bash
+gem install jekyll bundler
+bundle install
 ```
 
-Or manually.
-
-1. Add this line to your Jekyll site's `Gemfile`:
-   ```ruby
-   gem "jekyll-agency"
-   ```
-2. Then execute:
-   ```sh
-   $ bundle install
-   ```
-
-#### 2. Using the [Starter Template][template]
-
-This is the fastest and easiest way to get up and running on GitHub Pages.
-
-Simply generate your own repository by clicking the button below. Then replace the sample content with your own and configure for your needs.
-
-<div align="center">
-
-[![Use this template](https://img.shields.io/badge/Generate-Use_this_template-2ea44f?style=for-the-badge)][generate]
-
-</div>
-    
-#### 3. Remote Theme Installation
-
-Replace your `_config.yml` file with the starter [\_config.yml](https://raw.githubusercontent.com/raviriley/agency-jekyll-theme-starter/master/_config.yml).
-
-Replace your `Gemfile` with the starter [Gemfile](https://raw.githubusercontent.com/raviriley/agency-jekyll-theme-starter/master/Gemfile).
-
-Then install gems.
-
-```sh
-$ bundle install
+2. Run the development server:
+```bash
+bundle exec jekyll serve
 ```
 
-<!--
-## Documentation and Usage
+3. Open http://localhost:4000 in your browser
 
-**TODO:** Write usage instructions here. Describe available layouts, includes, or assets.
+### GitHub Pages Deployment
 
-navheader is used only for the home page. nav is used everywhere else.
+1. Push to GitHub repository
+2. Go to Settings > Pages
+3. Select source: Deploy from a branch
+4. Choose branch: main (or master)
+5. Select folder: / (root)
+6. Save and wait for deployment
 
-Layouts:
+## 📝 Content Management
 
-Includes:
-
--->
-
-## Contributing
-
-This project is intended to be a welcoming space for collaboration. If you have an idea, suggestion, feature request, etc., feel free to open an issue or pull request.
-
-For bug reports, follow the provided template.
-
-#### Improvements - Up for Grabs
-
-- [x] multiple language support thanks to [@rbenitezpagan](https://github.com/rbenitezpagan)
-  - [x] Spanish thanks to [@rbenitezpagan](https://github.com/rbenitezpagan)
-  - [x] German thanks to [@bkfirmen](https://github.com/bkfirmen)
-  - [ ] Chinese
-  - [ ] Arabic
-  - [ ] etc
-- [ ] customizable background coloring for each section
-
-## Development
-
-To set up your environment to develop this theme, clone this repo or your fork.
-
-```sh
-$ git clone https://github.com/raviriley/agency-jekyll-theme.git
-$ cd agency-jekyll-theme
+### Edit Services
+Update services in `_data/sitetext.yml`:
+```yaml
+services:
+  list:
+    - title: "App development"
+      desc: "iOS Android Web with smooth UI and reliable performance"
+      icon: fas fa-mobile
 ```
 
-Then run:
+### Edit Projects
+Add new portfolio items in `_portfolio/` folder:
+```markdown
+---
+title: Project Name
+subtitle: Brief description
+image: assets/img/portfolio/project.jpg
+alt: Project image alt text
 
-```sh
-$ bundle install
+caption:
+  title: Project Name
+  subtitle: Category
+  thumbnail: assets/img/portfolio/project.jpg
+---
+
+Project description here...
 ```
 
-To test the theme, run this. (Using the `--trace` flag for verbose errors.)
-
-```sh
-$ bundle exec jekyll serve --trace
+### Update Navigation
+Edit navigation links in `_data/navigation.yml`:
+```yaml
+en:
+  nav:
+    - title: "Services"
+      section: services
 ```
 
-Then open your browser at:
+## 🎨 Customization
 
-- http://localhost:4000
+### Colors
+Update brand colors in `_config.yml`:
+```yaml
+agency:
+  theme: dark
+  primary: "#F9E3A7"
+  secondary: "#181727"
+```
 
-Add pages, documents, data, etc. like normal to test the theme's contents. As you make modifications, your site will regenerate and you should see the changes in the browser after a refresh.
+### Contact Form
+1. Create a form at [Formspree](https://formspree.io)
+2. Get your form ID
+3. Update in `_config.yml`:
+```yaml
+formspree_form_path: "f/YOUR_FORM_ID"
+```
 
-## License
+## 🌐 Custom Domain Setup
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+### DNS Configuration
+Add these A records to your domain:
+- 185.199.108.153
+- 185.199.109.153
+- 185.199.110.153
+- 185.199.111.153
 
-<!--
+Or use CNAME/ALIAS for root domain if supported.
 
-## Example Implementations
+### Enable HTTPS
+1. Wait for DNS propagation (up to 24 hours)
+2. Go to Settings > Pages
+3. Check "Enforce HTTPS"
 
-- [CV Enterprises](https://cventerprises.org)
-- [Mortazavi Lab at UC Irvine](https://mortazavilab.github.io/)
+## 📁 Project Structure
 
--->
+```
+proj0.io/
+├── _config.yml          # Site configuration
+├── _data/
+│   ├── sitetext.yml     # Content (hero, services, etc.)
+│   └── navigation.yml   # Navigation menu
+├── _portfolio/          # Project markdown files
+├── assets/
+│   └── img/
+│       ├── portfolio/   # Project images
+│       ├── logo.png     # Site logo
+│       └── favicon.png  # Site favicon
+├── CNAME               # Custom domain
+└── index.md            # Homepage
+```
 
-[demo-page]: https://raviriley.github.io/agency-jekyll-theme-starter/
-[template]: https://github.com/raviriley/agency-jekyll-theme-starter
-[generate]: https://github.com/raviriley/agency-jekyll-theme-starter/generate
+## 🔧 Common Tasks
+
+### Add a New Project
+1. Create markdown file in `_portfolio/projectname.md`
+2. Add project image to `assets/img/portfolio/`
+3. Follow the portfolio item template above
+
+### Update Contact Info
+Edit email in `_config.yml`:
+```yaml
+email: hello@proj0.io
+```
+
+### Change Hero Text
+Edit in `_data/sitetext.yml`:
+```yaml
+header:
+  title: We build the projects behind the projects
+  text: App development • Cloud • Backend • Digital growth
+```
+
+## 📋 Maintenance
+
+### Check Build Status
+- View GitHub Actions tab for build status
+- Common issues:
+  - Invalid YAML syntax in config files
+  - Missing images referenced in portfolio
+  - Incorrect file paths
+
+### Performance Optimization
+- Keep images under 300KB
+- Use JPEG for photos, PNG for graphics
+- Add `loading="lazy"` to images when needed
+
+## 🤝 Support
+
+For theme-specific documentation, see:
+- [Agency Jekyll Theme](https://github.com/raviriley/agency-jekyll-theme)
+
+## 📄 License
+
+Theme: MIT License (see theme repository)
+Content: © proj0
+
+---
+
+**Note**: Remember to keep the CNAME file in the repository root for custom domain to work properly.
