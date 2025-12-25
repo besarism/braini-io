@@ -2,11 +2,11 @@
 title: AppCare
 subtitle: Smart infrastructure monitoring with alerts and insights
 image: assets/img/portfolio/appcare.jpg
-alt: AppCare - Infrastructure monitoring platform
+alt: AppCare
 
 caption:
   title: AppCare
-  subtitle: Monitoring Platform
+  subtitle: SaaS Platform
   thumbnail: assets/img/portfolio/appcare.jpg
 
 date_range: "2023-2024"
