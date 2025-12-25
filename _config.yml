@@ -39,4 +39,4 @@ defaults:
       image: /assets/img/og/proj0-og.jpg
 
 # Formspree - Replace YOUR_FORM_ID with actual Formspree form ID
-formspree_form_path: "f/YOUR_FORM_ID"
+formspree_form_path: "f/mdanqzdl"
