@@ -8,13 +8,15 @@ caption:
   title: AppCare
   subtitle: Monitoring Platform
   thumbnail: assets/img/portfolio/appcare.jpg
+
+date_range: "2023-2024"
+category: SaaS
+project_url: https://appcare.no
+url_display: appcare.no
+tags:
+  - SaaS
+  - Monitoring
+  - Cloud
 ---
 
 Comprehensive infrastructure monitoring solution providing real-time alerts, performance insights, and system health tracking. Designed for enterprises requiring reliable uptime monitoring and proactive issue detection.
-
-{:.list-inline}
-
-- Date: 2023-2024
-- Client: AppCare
-- Category: SaaS/Monitoring
-- URL: [appcare.no](https://appcare.no)

@@ -1,59 +1,44 @@
-<!-- Services -->
-{% if site.locale and site.locale != "" and site.locale != nil %}
-  <section class="page-section" id="{{ site.data.sitetext[site.locale].services.section | default: "services" }}">
-    <div class="container">
-	
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].services.title | default: "Services" }}</h2>
-          {% if site.data.sitetext[site.locale].services.text %}
-		  <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].services.text }}</h3>
-		  {% endif %}
-        </div>
-      </div>
-	  
-      <div class="row text-center">
-	  {% for service in site.data.sitetext[site.locale].services.list %}
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="{{ service.icon | default: "fas fa-shopping-cart" }} fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">{{ service.title | markdownify }}</h4>
-          {% if service.desc %}<div class="text-muted">{{ service.desc | markdownify }}</div>{% endif %}
-        </div>
-	  {% endfor %}
-      </div>
-	  
-    </div>
-  </section>
-{% else %}
-<section class="page-section" id="{{ site.data.sitetext.services.section | default: "services" }}">
+<!-- Services Section -->
+<section id="services">
   <div class="container">
+    <div class="section-header">
+      <span class="section-label">What we do</span>
+      <h2>Services</h2>
+      <p>End-to-end solutions for digital products and growth</p>
+    </div>
 
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">{{ site.data.sitetext.services.title | default: "Services" }}</h2>
-        {% if site.data.sitetext.services.text %}
-    <h3 class="section-subheading text-muted">{{ site.data.sitetext.services.text }}</h3>
-    {% endif %}
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>App Development</h3>
+        <p>Native and cross-platform mobile apps for iOS and Android. Smooth UI, reliable performance, and scalable architecture.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-server"></i>
+        </div>
+        <h3>Backend & Cloud</h3>
+        <p>Scalable APIs, secure authentication, observability, and automation. We build infrastructure that grows with you.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Digital Growth</h3>
+        <p>Growth strategy, performance marketing, SEO, and creative content that drives real business results.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3>Consulting</h3>
+        <p>Architecture audits, cost optimization, security reviews, and technical strategy for complex projects.</p>
       </div>
     </div>
-  
-    <div class="row text-center">
-  {% for service in site.data.sitetext.services.list %}
-      <div class="col-md-4">
-        <span class="fa-stack fa-4x">
-          <i class="fas fa-circle fa-stack-2x text-primary"></i>
-          <i class="{{ service.icon | default: "fas fa-shopping-cart" }} fa-stack-1x fa-inverse"></i>
-        </span>
-        <h4 class="service-heading">{{ service.title | markdownify }}</h4>
-        {% if service.desc %}<div class="text-muted">{{ service.desc | markdownify }}</div>{% endif %}
-      </div>
-  {% endfor %}
-    </div>
-  
   </div>
 </section>
-{% endif %}
-<!-- End Services -->

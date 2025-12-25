@@ -1,61 +1,46 @@
-<!-- Portfolio Grid -->
-{% if site.locale and site.locale != "" and site.locale != nil %}
-<section class="bg-light page-section" id="{{ site.data.sitetext[site.locale].portfolio.section | default: "portfolio" }}">
+<!-- Portfolio Section -->
+<section id="portfolio">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].portfolio.title | markdownify | default: "Portfolio" }}</h2>
-        <h3 class="section-subheading text-muted">{{ site.data.sitetext[site.locale].portfolio.text | markdownify }}</h3>
-      </div>
+    <div class="section-header">
+      <span class="section-label">Our Work</span>
+      <h2>Projects</h2>
+      <p>Selected work from our portfolio</p>
     </div>
-    <div class="row">
-	{% for project in site.portfolio %}
-      <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#p{{ forloop.index }}">
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="{{ site.data.style.portfolio-icon | default: "fas fa-plus fa-3x" }}"></i>
-            </div>
+
+    <div class="portfolio-grid">
+      {% for project in site.portfolio %}
+      <div class="project-card"
+           data-project="p{{ forloop.index }}"
+           data-info='{"title": "{{ project.title }}", "subtitle": "{{ project.subtitle }}", "image": "{{ project.image }}", "description": "{{ project.content | strip_html | strip_newlines | escape }}", "date": "{{ project.date_range | default: "" }}", "category": "{{ project.category | default: "" }}", "url": "{{ project.project_url | default: "" }}", "urlDisplay": "{{ project.url_display | default: "" }}"}'
+           onclick="openModal('p{{ forloop.index }}')">
+        <div class="project-image">
+          <img src="{{ project.caption.thumbnail }}" alt="{{ project.alt | default: project.title }}">
+          <div class="project-overlay">
+            <span>View project <i class="fas fa-arrow-right"></i></span>
           </div>
-          <img class="img-fluid" src="{{ project.caption.thumbnail }}" alt="">
-        </a>
-        <div class="portfolio-caption">
-          <h4>{{ project.caption.title }}</h4>
-          <p class="text-muted">{{ project.caption.subtitle }}</p>
+        </div>
+        <div class="project-content">
+          <h3>{{ project.caption.title }}</h3>
+          <p>{{ project.subtitle | truncate: 80 }}</p>
+          <div class="project-tags">
+            {% if project.tags %}
+              {% for tag in project.tags %}
+              <span class="project-tag">{{ tag }}</span>
+              {% endfor %}
+            {% else %}
+              <span class="project-tag">{{ project.caption.subtitle }}</span>
+            {% endif %}
+          </div>
         </div>
       </div>
-	{% endfor %}
+      {% endfor %}
     </div>
   </div>
 </section>
-{% else %}
-<section class="bg-light page-section" id="{{ site.data.sitetext.portfolio.section | default: "portfolio" }}">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">{{ site.data.sitetext.portfolio.title | markdownify | default: "Portfolio" }}</h2>
-        <h3 class="section-subheading text-muted">{{ site.data.sitetext.portfolio.text | markdownify }}</h3>
-      </div>
-    </div>
-    <div class="row">
-	{% for project in site.portfolio %}
-      <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#p{{ forloop.index }}">
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="{{ site.data.style.portfolio-icon | default: "fas fa-plus fa-3x" }}"></i>
-            </div>
-          </div>
-          <img class="img-fluid" src="{{ project.caption.thumbnail }}" alt="">
-        </a>
-        <div class="portfolio-caption">
-          <h4>{{ project.caption.title }}</h4>
-          <p class="text-muted">{{ project.caption.subtitle }}</p>
-        </div>
-      </div>
-	{% endfor %}
-    </div>
+
+<!-- Project Modal -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-content" id="modal-content">
+    <!-- Content injected via JavaScript -->
   </div>
-</section>
-{% endif %}
-{% include modals.html %}
+</div>
