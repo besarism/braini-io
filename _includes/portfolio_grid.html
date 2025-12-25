@@ -3,44 +3,88 @@
   <div class="container">
     <div class="section-header">
       <span class="section-label">Our Work</span>
-      <h2>Projects</h2>
-      <p>Selected work from our portfolio</p>
+      <h2>Trusted by Industry Leaders</h2>
+      <p>Two decades of delivering systems that run at scale</p>
     </div>
 
-    <div class="portfolio-grid">
-      {% for project in site.portfolio %}
-      <div class="project-card"
-           data-project="p{{ forloop.index }}"
-           data-info='{"title": "{{ project.title }}", "subtitle": "{{ project.subtitle }}", "image": "{{ project.image }}", "description": "{{ project.content | strip_html | strip_newlines | escape }}", "date": "{{ project.date_range | default: "" }}", "category": "{{ project.category | default: "" }}", "url": "{{ project.project_url | default: "" }}", "urlDisplay": "{{ project.url_display | default: "" }}"}'
-           onclick="openModal('p{{ forloop.index }}')">
-        <div class="project-image">
-          <img src="{{ project.caption.thumbnail }}" alt="{{ project.alt | default: project.title }}">
-          <div class="project-overlay">
-            <span>View project <i class="fas fa-arrow-right"></i></span>
-          </div>
+    <div class="portfolio-content">
+      <div class="portfolio-intro">
+        <p class="lead">We have worked with <strong>20+ clients across Scandinavia</strong>, building and maintaining the backend systems, mobile applications, and cloud infrastructure behind some of the region's most recognized brands.</p>
+      </div>
+
+      <div class="portfolio-stats">
+        <div class="stat-card">
+          <div class="stat-number">2M+</div>
+          <div class="stat-label">End users served</div>
+          <div class="stat-desc">Consumer apps in grocery retail reaching millions of daily active users</div>
         </div>
-        <div class="project-content">
-          <h3>{{ project.caption.title }}</h3>
-          <p>{{ project.subtitle | truncate: 80 }}</p>
-          <div class="project-tags">
-            {% if project.tags %}
-              {% for tag in project.tags %}
-              <span class="project-tag">{{ tag }}</span>
-              {% endfor %}
-            {% else %}
-              <span class="project-tag">{{ project.caption.subtitle }}</span>
-            {% endif %}
+        <div class="stat-card">
+          <div class="stat-number">3</div>
+          <div class="stat-label">National energy operators</div>
+          <div class="stat-desc">Real-time metering, billing, and consumption data for grid-level infrastructure</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100K+</div>
+          <div class="stat-label">Students & educators</div>
+          <div class="stat-desc">Education platforms deployed across schools and municipalities</div>
+        </div>
+      </div>
+
+      <div class="portfolio-sectors">
+        <h3>Industries We Serve</h3>
+        <div class="sectors-grid">
+          <div class="sector">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Grocery & Retail</span>
+          </div>
+          <div class="sector">
+            <i class="fas fa-bolt"></i>
+            <span>Energy & Utilities</span>
+          </div>
+          <div class="sector">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Education</span>
+          </div>
+          <div class="sector">
+            <i class="fas fa-bus"></i>
+            <span>Transport & Logistics</span>
+          </div>
+          <div class="sector">
+            <i class="fas fa-film"></i>
+            <span>Media & Streaming</span>
+          </div>
+          <div class="sector">
+            <i class="fas fa-store"></i>
+            <span>Consumer Services</span>
           </div>
         </div>
       </div>
-      {% endfor %}
+
+      <div class="portfolio-capabilities">
+        <h3>What We Deliver</h3>
+        <div class="capabilities-grid">
+          <div class="capability">
+            <h4>Production Systems</h4>
+            <p>Mission-critical infrastructure handling real-time data, payments, and high-availability requirements.</p>
+          </div>
+          <div class="capability">
+            <h4>Mobile Backends</h4>
+            <p>Scalable APIs powering iOS and Android applications with millions of monthly active users.</p>
+          </div>
+          <div class="capability">
+            <h4>Analytics & Data</h4>
+            <p>Pipelines processing business intelligence, user behavior, and operational metrics at scale.</p>
+          </div>
+          <div class="capability">
+            <h4>Cloud Infrastructure</h4>
+            <p>Secure, observable, and cost-optimized deployments built for long-term maintainability.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-trust">
+        <p>Our clients return because we build systems that last. We operate as long-term partners, not vendors—embedded in their teams, accountable for outcomes, and invested in their success.</p>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- Project Modal -->
-<div class="modal-overlay" id="modal-overlay">
-  <div class="modal-content" id="modal-content">
-    <!-- Content injected via JavaScript -->
-  </div>
-</div>

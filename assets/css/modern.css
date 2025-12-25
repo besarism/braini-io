@@ -416,95 +416,168 @@ section {
   background: var(--bg-primary);
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 2rem;
+.portfolio-content {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.project-card {
+.portfolio-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.portfolio-intro .lead {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.portfolio-intro strong {
+  color: var(--text-primary);
+}
+
+/* Stats */
+.portfolio-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.stat-card {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
   transition: var(--transition);
-  cursor: pointer;
 }
 
-.project-card:hover {
+.stat-card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-8px);
-  box-shadow: var(--shadow);
+  transform: translateY(-4px);
 }
 
-.project-image {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: var(--bg-tertiary);
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition);
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.05);
-}
-
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(10, 10, 11, 0.9) 0%, transparent 60%);
-  opacity: 0;
-  transition: var(--transition);
-  display: flex;
-  align-items: flex-end;
-  padding: 1.5rem;
-}
-
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.project-overlay span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--accent);
-  font-weight: 500;
-}
-
-.project-content {
-  padding: 1.5rem;
-}
-
-.project-content h3 {
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
   margin-bottom: 0.5rem;
 }
 
-.project-content p {
+.stat-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.stat-desc {
   font-size: 0.9rem;
   color: var(--text-muted);
-  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
-.project-tags {
+/* Sectors */
+.portfolio-sectors {
+  margin-bottom: 4rem;
+}
+
+.portfolio-sectors h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.sector {
   display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: var(--transition);
 }
 
-.project-tag {
-  padding: 0.35rem 0.75rem;
-  background: var(--bg-tertiary);
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
+.sector:hover {
+  border-color: var(--accent);
+}
+
+.sector i {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.sector span {
+  font-size: 0.9rem;
+  font-weight: 500;
   color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Capabilities */
+.portfolio-capabilities {
+  margin-bottom: 4rem;
+}
+
+.portfolio-capabilities h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.capability {
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.capability h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.capability p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Trust statement */
+.portfolio-trust {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.portfolio-trust p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
 }
 
 /* ===== PROJECT MODAL ===== */

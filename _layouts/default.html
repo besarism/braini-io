@@ -9,7 +9,6 @@
 
     {% include footer.html %}
 
-    <!-- Minimal JavaScript -->
     <script>
       // Navigation scroll effect
       const nav = document.querySelector('.nav');
@@ -31,7 +30,6 @@
           navLinks.classList.toggle('active');
         });
 
-        // Close menu on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
           link.addEventListener('click', () => {
             navToggle.classList.remove('active');
@@ -54,66 +52,7 @@
         });
       });
 
-      // Modal functionality
-      const modalOverlay = document.getElementById('modal-overlay');
-      const modalContent = document.getElementById('modal-content');
-
-      function openModal(projectId) {
-        const project = document.querySelector(`[data-project="${projectId}"]`);
-        if (project && modalOverlay && modalContent) {
-          const data = JSON.parse(project.dataset.info);
-
-          modalContent.innerHTML = `
-            <div class="modal-header">
-              <img src="${data.image}" alt="${data.title}">
-              <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-              <h2>${data.title}</h2>
-              <p class="modal-subtitle">${data.subtitle}</p>
-              <p class="modal-description">${data.description}</p>
-              <div class="modal-meta">
-                ${data.date ? `<div class="modal-meta-item"><span class="modal-meta-label">Date</span><span class="modal-meta-value">${data.date}</span></div>` : ''}
-                ${data.category ? `<div class="modal-meta-item"><span class="modal-meta-label">Category</span><span class="modal-meta-value">${data.category}</span></div>` : ''}
-                ${data.url ? `<div class="modal-meta-item"><span class="modal-meta-label">Website</span><span class="modal-meta-value"><a href="${data.url}" target="_blank" rel="noopener">${data.urlDisplay} <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></span></div>` : ''}
-              </div>
-            </div>
-          `;
-
-          modalOverlay.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      }
-
-      function closeModal() {
-        if (modalOverlay) {
-          modalOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      }
-
-      // Close modal on overlay click
-      if (modalOverlay) {
-        modalOverlay.addEventListener('click', (e) => {
-          if (e.target === modalOverlay) {
-            closeModal();
-          }
-        });
-      }
-
-      // Close modal on Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          closeModal();
-        }
-      });
-
       // Animate elements on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -121,9 +60,9 @@
             observer.unobserve(entry.target);
           }
         });
-      }, observerOptions);
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-      document.querySelectorAll('.service-card, .project-card').forEach(el => {
+      document.querySelectorAll('.service-card, .stat-card, .sector, .capability').forEach(el => {
         observer.observe(el);
       });
     </script>
