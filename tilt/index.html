@@ -280,7 +280,8 @@
 
   function showDownload() {
     setStatus('Thanks! <a href="' + DOWNLOAD_URL + '" rel="noopener"><strong>Download Tilt for macOS</strong></a> (DMG, beta). ' +
-              'After dragging it to Applications, right-click Tilt and choose Open the first time. We\u2019ll email you when there\u2019s an update.', "ok");
+              'First launch: macOS will say it could not verify the app. Click Done, then open System Settings \u203a Privacy &amp; Security ' +
+              'and click <strong>Open Anyway</strong>. We\u2019ll email you when there\u2019s an update.', "ok");
     // Start the download as well, in case the link is missed.
     window.setTimeout(function () { window.location.href = DOWNLOAD_URL; }, 600);
   }
