@@ -303,10 +303,8 @@
           body: JSON.stringify({ email: value, _subject: "Tilt download request", source: "proj0.io/tilt" })
         });
         if (!response.ok) throw new Error("Request failed");
-        setStatus("You\u2019re on the list. The download link is on its way to your inbox.", "ok");
-      } else {
-        setStatus('You’re on the list. Grab the build here: <a href="' + DOWNLOAD_URL + '" rel="noopener">Download Tilt for macOS</a>', "ok");
       }
+      showDownload();
       form.reset();
     } catch (error) {
       setStatus("Something went wrong. Please try again in a moment.", "err");
