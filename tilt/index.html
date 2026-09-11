@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tilt — your desktop folds with the lid</title>
-<meta name="description" content="Tilt is a tiny macOS menu bar app that bends your live desktop as you close the MacBook lid. Enter your email and we'll send you the download link.">
+<meta name="description" content="Tilt is a tiny macOS menu bar app that bends your live desktop as you close the MacBook lid. Enter your email to get the download.">
 <meta property="og:title" content="Tilt — your desktop folds with the lid">
 <meta property="og:url" content="https://proj0.io/tilt/">
 <link rel="canonical" href="https://proj0.io/tilt/">
@@ -217,7 +217,7 @@
         <div class="field">
           <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Email address">
         </div>
-        <button id="submit" type="submit">Send me the download</button>
+        <button id="submit" type="submit">Get the download</button>
       </form>
       <div id="status" class="status" role="status" aria-live="polite"></div>
 
@@ -263,8 +263,8 @@
   </footer>
 
 <script>
-  // Submissions go to proj0's Formspree form; the download link is mailed from there.
-  // With no endpoint configured the page falls back to showing the download link inline.
+  // Submissions are recorded on proj0's Formspree form (owner is notified). The visitor gets
+  // the download link right here on the page; Formspree's autoresponse is not on the free plan.
   const ENDPOINT = "https://formspree.io/f/mdanqzdl";
   const DOWNLOAD_URL = "https://github.com/besarism/tilt-site/releases/latest/download/Tilt.dmg";
 
@@ -276,6 +276,13 @@
   function setStatus(text, kind) {
     status.className = "status" + (kind ? " " + kind : "");
     status.innerHTML = text;
+  }
+
+  function showDownload() {
+    setStatus('Thanks! <a href="' + DOWNLOAD_URL + '" rel="noopener"><strong>Download Tilt for macOS</strong></a> (DMG, beta). ' +
+              'After dragging it to Applications, right-click Tilt and choose Open the first time. We\u2019ll email you when there\u2019s an update.', "ok");
+    // Start the download as well, in case the link is missed.
+    window.setTimeout(function () { window.location.href = DOWNLOAD_URL; }, 600);
   }
 
   form.addEventListener("submit", async (event) => {
