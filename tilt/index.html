@@ -279,9 +279,8 @@
   }
 
   function showDownload() {
-    setStatus('Thanks! <a href="' + DOWNLOAD_URL + '" rel="noopener"><strong>Download Tilt for macOS</strong></a> (DMG, beta). ' +
-              'First launch: macOS will say it could not verify the app. Click Done, then open System Settings \u203a Privacy &amp; Security ' +
-              'and click <strong>Open Anyway</strong>. We\u2019ll email you when there\u2019s an update.', "ok");
+    setStatus('Thanks! <a href="' + DOWNLOAD_URL + '" rel="noopener"><strong>Download Tilt for macOS</strong></a> (DMG). ' +
+              'Drag it to Applications and launch it; Tilt will ask for Screen Recording permission. We\u2019ll email you when there\u2019s an update.', "ok");
     // Start the download as well, in case the link is missed.
     window.setTimeout(function () { window.location.href = DOWNLOAD_URL; }, 600);
   }
