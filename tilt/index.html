@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tilt — your desktop folds with the lid</title>
+<meta name="description" content="Tilt is a tiny macOS menu bar app that bends your live desktop as you close the MacBook lid. Enter your email and we'll send you the download link.">
+<meta property="og:title" content="Tilt — your desktop folds with the lid">
+<meta property="og:url" content="https://proj0.io/tilt/">
+<link rel="canonical" href="https://proj0.io/tilt/">
+<meta property="og:description" content="A tiny macOS app that bends your live desktop as you close the MacBook lid.">
+<meta name="theme-color" content="#0b0b0f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0f'/%3E%3Cpath d='M14 44 L50 44 L44 20 L20 20 Z' fill='%234f8cff'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0b0b0f;
+    --bg-2: #12121a;
+    --fg: #f2f2f5;
+    --muted: #9a9aa6;
+    --line: rgba(255,255,255,0.10);
+    --accent: #4f8cff;
+    --accent-2: #7fb0ff;
+    --ok: #4fd29a;
+    --err: #ff6b6b;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: radial-gradient(1200px 700px at 70% -10%, #1a1c2c 0%, var(--bg) 55%), var(--bg);
+    color: var(--fg);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 0 clamp(16px, 4vw, 48px);
+  }
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 0;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: 0.2px; }
+  .brand svg { width: 22px; height: 22px; }
+  .pill {
+    font-size: 12px; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px;
+  }
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(24px, 5vw, 72px);
+    align-items: center;
+    min-height: 0;
+  }
+  h1 {
+    font-size: clamp(30px, 4.4vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+  h1 span { color: var(--accent-2); }
+  .lede { color: var(--muted); font-size: clamp(15px, 1.35vw, 19px); margin: 0 0 28px; max-width: 34em; }
+  form { display: flex; gap: 10px; max-width: 480px; }
+  .field { flex: 1; position: relative; }
+  input[type="email"] {
+    width: 100%; height: 50px; padding: 0 16px;
+    border-radius: 12px; border: 1px solid var(--line);
+    background: rgba(255,255,255,0.05); color: var(--fg); font: inherit; outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  input[type="email"]::placeholder { color: #6f6f7c; }
+  input[type="email"]:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(79,140,255,0.18); }
+  button {
+    height: 50px; padding: 0 20px; border: 0; border-radius: 12px; cursor: pointer;
+    background: var(--accent); color: #fff; font: inherit; font-weight: 600; white-space: nowrap;
+    transition: transform .1s, background .15s;
+  }
+  button:hover { background: var(--accent-2); }
+  button:active { transform: translateY(1px); }
+  button[disabled] { opacity: .6; cursor: default; }
+  .status { min-height: 22px; margin-top: 10px; font-size: 14px; color: var(--muted); }
+  .status.ok { color: var(--ok); }
+  .status.err { color: var(--err); }
+  .status a { color: var(--accent-2); }
+  .fine { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: 13px; }
+  .fine span::before { content: "·"; margin-right: 8px; color: #55555f; }
+  .fine span:first-child::before { content: ""; margin: 0; }
+
+  /* ---- Laptop mockup ---- */
+  .stage { display: grid; place-items: center; perspective: 1400px; min-height: 0; min-width: 0; }
+  .laptop { width: 100%; max-width: 620px; aspect-ratio: 16 / 12; position: relative; transform-style: preserve-3d; }
+  .lid {
+    position: absolute; left: 4%; right: 4%; top: 0; height: 78%;
+    border-radius: 14px 14px 6px 6px;
+    background: #0a0a0c;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.08);
+    transform-origin: 50% 100%;
+    animation: lid 7s cubic-bezier(.45,.0,.25,1) infinite;
+    overflow: hidden;
+  }
+  .screen { position: absolute; inset: 3.2% 2.6% 2.6%; border-radius: 8px; overflow: hidden; background: #000; }
+  .desktop {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(60% 50% at 75% 20%, #6e7fbf 0%, transparent 60%),
+      radial-gradient(70% 60% at 20% 80%, #2f3f80 0%, transparent 60%),
+      linear-gradient(180deg, #223056 0%, #0e1430 100%);
+    animation: fold 7s cubic-bezier(.45,.0,.25,1) infinite;
+    transform-origin: 50% 100%;
+  }
+  .window {
+    position: absolute; left: 14%; top: 16%; width: 58%; height: 52%;
+    border-radius: 8px; background: rgba(28,28,34,.92);
+    box-shadow: 0 12px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.08);
+  }
+  .window::before {
+    content: ""; position: absolute; left: 10px; top: 9px; width: 34px; height: 8px;
+    background: radial-gradient(circle at 4px 4px, #ff5f57 3.4px, transparent 4px),
+                radial-gradient(circle at 17px 4px, #febc2e 3.4px, transparent 4px),
+                radial-gradient(circle at 30px 4px, #28c840 3.4px, transparent 4px);
+  }
+  .line { position: absolute; left: 6%; height: 6px; border-radius: 3px; background: rgba(255,255,255,.14); }
+  .menubar { position: absolute; left: 0; right: 0; top: 0; height: 6.5%; background: rgba(255,255,255,.08); backdrop-filter: blur(6px); }
+  .dock {
+    position: absolute; left: 50%; bottom: 3%; transform: translateX(-50%);
+    width: 46%; height: 9%; border-radius: 10px; background: rgba(255,255,255,.14);
+    display: flex; gap: 4%; padding: 1.6% 3%; align-items: center;
+  }
+  .dock i { flex: 1; aspect-ratio: 1; border-radius: 26%; background: var(--c); opacity: .95; }
+  .notch { position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 16%; height: 4%; background: #0a0a0c; border-radius: 0 0 8px 8px; }
+  .base {
+    position: absolute; left: 0; right: 0; bottom: 3%; height: 19%;
+    border-radius: 6px 6px 16px 16px;
+    background: linear-gradient(180deg, #2a2a30, #191920);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 20px 50px rgba(0,0,0,.5);
+  }
+  .keys { position: absolute; left: 8%; right: 8%; top: 12%; height: 46%; border-radius: 6px; background: repeating-linear-gradient(90deg, #111 0 6%, #1c1c22 6% 6.6%), #101014; opacity: .9; }
+  .trackpad { position: absolute; left: 38%; right: 38%; bottom: 10%; height: 22%; border-radius: 6px; background: #17171c; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+  .hint { position: absolute; left: 50%; bottom: -6%; transform: translateX(-50%); color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+  /* The lid closes to ~55° and reopens; the desktop keystones, blurs and shades to match. */
+  @keyframes lid {
+    0%, 10%   { transform: rotateX(0deg); }
+    45%, 55%  { transform: rotateX(-34deg); }
+    90%, 100% { transform: rotateX(0deg); }
+  }
+  @keyframes fold {
+    0%, 10% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      filter: blur(0px) brightness(1);
+      transform: scaleY(1);
+    }
+    45%, 55% {
+      clip-path: polygon(22% 0, 95% 0, 100% 100%, 0 100%);
+      filter: blur(3px) brightness(.72);
+      transform: scaleY(.965);
+    }
+    90%, 100% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      filter: blur(0px) brightness(1);
+      transform: scaleY(1);
+    }
+  }
+  .shade {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 14%, transparent 40%),
+      linear-gradient(270deg, rgba(0,0,0,.7) 0%, transparent 12%);
+    opacity: 0;
+    animation: shade 7s cubic-bezier(.45,.0,.25,1) infinite;
+  }
+  @keyframes shade { 0%,10% { opacity: 0; } 45%,55% { opacity: 1; } 90%,100% { opacity: 0; } }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 18px 0 20px; color: var(--muted); font-size: 13px;
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--fg); }
+
+  @media (max-width: 860px) {
+    body { overflow: auto; height: auto; min-height: 100dvh; }
+    main { grid-template-columns: minmax(0, 1fr); gap: 28px; align-content: center; }
+    section { min-width: 0; }
+    .stage { order: -1; }
+    .laptop { max-width: 440px; }
+    form { flex-direction: column; }
+    .hint { display: none; }
+  }
+  @media (max-width: 520px) {
+    .pill { display: none; }
+    footer { flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lid, .desktop, .shade { animation-duration: 14s; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#15151c"/><path d="M14 44 L50 44 L44 20 L20 20 Z" fill="#4f8cff"/></svg>
+      Tilt
+    </div>
+    <div class="pill">A <a href="https://proj0.io" style="color:inherit">proj0</a> project · macOS · free while in beta</div>
+  </header>
+
+  <main>
+    <section>
+      <h1>Your desktop <span>folds</span> with the lid.</h1>
+      <p class="lede">Tilt reads the MacBook hinge and bends your live desktop in real time. Close the lid and the screen tilts away, softens and shades; open it and everything settles back. Rendered with Metal, nothing recorded, nothing uploaded.</p>
+
+      <form id="signup" novalidate>
+        <div class="field">
+          <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Email address">
+        </div>
+        <button id="submit" type="submit">Send me the download</button>
+      </form>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <div class="fine">
+        <span>macOS 14 or later</span>
+        <span>Apple silicon MacBook with a lid sensor</span>
+        <span>Screen Recording permission</span>
+      </div>
+    </section>
+
+    <section class="stage" aria-hidden="true">
+      <div class="laptop">
+        <div class="lid">
+          <div class="screen">
+            <div class="desktop">
+              <div class="window">
+                <span class="line" style="top:30%; width:60%"></span>
+                <span class="line" style="top:45%; width:44%"></span>
+                <span class="line" style="top:60%; width:70%"></span>
+                <span class="line" style="top:75%; width:36%"></span>
+              </div>
+            </div>
+            <div class="shade"></div>
+            <div class="menubar"></div>
+            <div class="dock">
+              <i style="--c:#4f8cff"></i><i style="--c:#ff7a59"></i><i style="--c:#4fd29a"></i><i style="--c:#c17bff"></i><i style="--c:#ffd166"></i><i style="--c:#7fd6ff"></i>
+            </div>
+          </div>
+          <div class="notch"></div>
+        </div>
+        <div class="base">
+          <div class="keys"></div>
+          <div class="trackpad"></div>
+        </div>
+        <div class="hint">Looping demo. The real thing follows your hinge.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 <a href="https://proj0.io">proj0</a>. Frames never leave your Mac.</div>
+    <div><a href="https://proj0.io/legal">Privacy</a> · <a href="mailto:hello@proj0.io">hello@proj0.io</a></div>
+  </footer>
+
+<script>
+  // Submissions go to proj0's Formspree form; the download link is mailed from there.
+  // With no endpoint configured the page falls back to showing the download link inline.
+  const ENDPOINT = "https://formspree.io/f/mdanqzdl";
+  const DOWNLOAD_URL = "https://github.com/besarism/tilt-site/releases/latest";
+
+  const form = document.getElementById("signup");
+  const email = document.getElementById("email");
+  const status = document.getElementById("status");
+  const button = document.getElementById("submit");
+
+  function setStatus(text, kind) {
+    status.className = "status" + (kind ? " " + kind : "");
+    status.innerHTML = text;
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const value = email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      setStatus("Please enter a valid email address.", "err");
+      email.focus();
+      return;
+    }
+    button.disabled = true;
+    setStatus("Sending…");
+    try {
+      if (ENDPOINT) {
+        const response = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ email: value, _subject: "Tilt download request", source: "proj0.io/tilt" })
+        });
+        if (!response.ok) throw new Error("Request failed");
+        setStatus("You\u2019re on the list. The download link is on its way to your inbox.", "ok");
+      } else {
+        setStatus('You’re on the list. Grab the build here: <a href="' + DOWNLOAD_URL + '" rel="noopener">Download Tilt for macOS</a>', "ok");
+      }
+      form.reset();
+    } catch (error) {
+      setStatus("Something went wrong. Please try again in a moment.", "err");
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
