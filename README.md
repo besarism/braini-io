@@ -1,170 +1,55 @@
-# proj0.io
+# Project 0 — proj0.io
 
-A premium single-page portfolio site built with Jekyll Agency Theme, showcasing app development, cloud infrastructure, and digital growth services.
+The Project 0 marketing website, built with Jekyll and a small amount of plain JavaScript. Jekyll generates complete HTML for the homepage and service pages; the interactive illustrations, service tabs, menu, and contact form enhance it in the browser. No React or Next.js runtime is required for this site.
 
-## 🚀 Quick Start
+## Local development
 
-### Local Development
+Use a Ruby installation supported by the Jekyll version in `Gemfile`, with Bundler installed. The existing deployment workflow uses Ruby 3.2. Avoid macOS's legacy system Ruby.
 
-1. Install Jekyll and dependencies:
-```bash
-gem install jekyll bundler
+```sh
 bundle install
+bundle exec jekyll serve --host 127.0.0.1 --port 4000
 ```
 
-2. Run the development server:
-```bash
-bundle exec jekyll serve
+Open `http://127.0.0.1:4000/`. Jekyll rebuilds when source files change; refresh the browser to see the result.
+
+To check a production build (Python 3 is only needed for the validation script):
+
+```sh
+JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter
+python3 scripts/check-site.py _site
 ```
 
-3. Open http://localhost:4000 in your browser
+The check validates nine HTML pages, unique page titles and descriptions, canonical URLs, JSON-LD, the sitemap, internal links, anchors, local assets, and ARIA references. It does not submit the contact form or test live search rankings.
 
-### GitHub Pages Deployment
+## Editing
 
-1. Push to GitHub repository
-2. Go to Settings > Pages
-3. Select source: Deploy from a branch
-4. Choose branch: main (or master)
-5. Select folder: / (root)
-6. Save and wait for deployment
+| Content | Location |
+| --- | --- |
+| Homepage sections | `_includes/marketing/hero.html`, `expertise.html`, `approach.html`, `contact.html` |
+| Service copy and illustrations' labels | `_data/services.json` |
+| Service titles, descriptions and URLs | `services/*.md` |
+| Service page structure | `_layouts/service.html` |
+| Shared header and footer | `_includes/marketing/header.html`, `footer.html` |
+| Styling and responsive layout | `assets/css/site.css` |
+| Animation, service tabs and menu | `assets/js/site.js` |
+| Contact validation and delivery | `assets/js/contact.js` |
+| Domain, email and Formspree endpoint | `_config.yml` |
+| Metadata and structured data | `_includes/head.html`, `_includes/marketing/structured-data.html` |
+| Search and social assets | `sitemap.xml`, `robots.txt`, `assets/img/brand/`, `assets/img/og/` |
 
-## 📝 Content Management
+Edit a service's visible content in the JSON file and its search description in the matching Markdown file. Run the build and checks afterward. Fonts are self-hosted with their licenses in `assets/fonts/`.
 
-### Edit Services
-Update services in `_data/sitetext.yml`:
-```yaml
-services:
-  list:
-    - title: "App development"
-      desc: "iOS Android Web with smooth UI and reliable performance"
-      icon: fas fa-mobile
-```
+## Contact form
 
-### Edit Projects
-Add new portfolio items in `_portfolio/` folder:
-```markdown
----
-title: Project Name
-subtitle: Brief description
-image: assets/img/portfolio/project.jpg
-alt: Project image alt text
+The form uses the existing Formspree endpoint configured in `_config.yml`. It supports native POST without JavaScript; with JavaScript, it validates fields, prevents duplicate requests, waits for confirmed success, and preserves entered text on failure. A hidden honeypot helps catch basic spam. The endpoint is a public form identifier, not a secret key.
 
-caption:
-  title: Project Name
-  subtitle: Category
-  thumbnail: assets/img/portfolio/project.jpg
----
+Local checks covered mocked success, provider errors, rate limiting, invalid responses, and network failures. Actual inbox delivery still needs an owner-submitted test and confirmation in the Formspree dashboard. No external test messages were sent during implementation.
 
-Project description here...
-```
+## Deployment and SEO
 
-### Update Navigation
-Edit navigation links in `_data/navigation.yml`:
-```yaml
-en:
-  nav:
-    - title: "Services"
-      section: services
-```
+The existing `.github/workflows/jekyll.yml` builds, checks, and publishes the site on pushes to `master`, or when you manually run the workflow. It uploads `_site` as a GitHub Pages artifact. This is an **Actions** deployment, not branch publishing from `docs/` or `_site/`.
 
-## 🎨 Customization
+The configured domain remains `proj0.io`; `CNAME` and DNS do not need a domain migration. See [Launch steps](docs/LAUNCH.md) and the [SEO plan](docs/SEO.md).
 
-### Colors
-Update brand colors in `_config.yml`:
-```yaml
-agency:
-  theme: dark
-  primary: "#F9E3A7"
-  secondary: "#181727"
-```
-
-### Contact Form
-1. Create a form at [Formspree](https://formspree.io)
-2. Get your form ID
-3. Update in `_config.yml`:
-```yaml
-formspree_form_path: "f/YOUR_FORM_ID"
-```
-
-## 🌐 Custom Domain Setup
-
-### DNS Configuration
-Add these A records to your domain:
-- 185.199.108.153
-- 185.199.109.153
-- 185.199.110.153
-- 185.199.111.153
-
-Or use CNAME/ALIAS for root domain if supported.
-
-### Enable HTTPS
-1. Wait for DNS propagation (up to 24 hours)
-2. Go to Settings > Pages
-3. Check "Enforce HTTPS"
-
-## 📁 Project Structure
-
-```
-proj0.io/
-├── _config.yml          # Site configuration
-├── _data/
-│   ├── sitetext.yml     # Content (hero, services, etc.)
-│   └── navigation.yml   # Navigation menu
-├── _portfolio/          # Project markdown files
-├── assets/
-│   └── img/
-│       ├── portfolio/   # Project images
-│       ├── logo.png     # Site logo
-│       └── favicon.png  # Site favicon
-├── CNAME               # Custom domain
-└── index.md            # Homepage
-```
-
-## 🔧 Common Tasks
-
-### Add a New Project
-1. Create markdown file in `_portfolio/projectname.md`
-2. Add project image to `assets/img/portfolio/`
-3. Follow the portfolio item template above
-
-### Update Contact Info
-Edit email in `_config.yml`:
-```yaml
-email: hello@proj0.io
-```
-
-### Change Hero Text
-Edit in `_data/sitetext.yml`:
-```yaml
-header:
-  title: We build the projects behind the projects
-  text: App development • Cloud • Backend • Digital growth
-```
-
-## 📋 Maintenance
-
-### Check Build Status
-- View GitHub Actions tab for build status
-- Common issues:
-  - Invalid YAML syntax in config files
-  - Missing images referenced in portfolio
-  - Incorrect file paths
-
-### Performance Optimization
-- Keep images under 300KB
-- Use JPEG for photos, PNG for graphics
-- Add `loading="lazy"` to images when needed
-
-## 🤝 Support
-
-For theme-specific documentation, see:
-- [Agency Jekyll Theme](https://github.com/raviriley/agency-jekyll-theme)
-
-## 📄 License
-
-Theme: MIT License (see theme repository)
-Content: © proj0
-
----
-
-**Note**: Remember to keep the CNAME file in the repository root for custom domain to work properly.
+Legacy theme files remain in the source for reference. Unused scripts/styles and the old `tilt/` experiment are excluded from the published build. Existing homepage anchors `#services`, `#work`, and `#page-top` remain supported alongside the new navigation.

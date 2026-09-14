@@ -1,0 +1,5 @@
+<footer class="site-footer">
+  <div class="footer-main"><div><a class="footer-wordmark" href="{{ '/' | relative_url }}">Project 0</a><p>Software, thoughtfully built.</p><p class="footer-region">Available to teams in Scandinavia,<br>North Macedonia, and worldwide.</p></div>
+  <nav class="footer-services" aria-label="Services">{% for service in site.data.services %}<a href="{{ service.url | relative_url }}">{{ service.title }}</a>{% endfor %}</nav></div>
+  <div class="footer-bottom"><span>© {{ site.time | date: '%Y' }} PROJECT 0</span><div><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="{{ '/legal' | relative_url }}">Privacy policy</a><a href="#top">Back to top ↑</a></div></div>
+</footer>

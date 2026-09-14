@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{% assign service = site.data.services | where: 'slug', page.service_slug | first %}
+<section class="service-hero">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span><span>{{ service.name }}</span></nav>
+  <span class="eyebrow">PROJECT 0 / OUR EXPERTISE</span>
+  <h1>{{ service.title }}<span>.</span></h1>
+  <p class="service-intro">{{ service.intro }}</p>
+  <a href="{{ '/' | relative_url }}#contact" class="hero-action primary"><span>Talk about your project</span><span aria-hidden="true">→</span></a>
+</section>
+<section class="service-body">
+  <div class="service-overview"><h2>What we can<br>build together.</h2><p>{{ service.audience }}</p></div>
+  <div class="offering-list">{% for offer in service.offers %}<article><span class="eyebrow">0{{ forloop.index }}</span><h3>{{ offer[0] }}</h3><p>{{ offer[1] }}</p></article>{% endfor %}</div>
+  <div class="service-process"><h2>How we approach it.</h2>{% for step in service.steps %}<article><span>0{{ forloop.index }}</span><div><h3>{{ step[0] }}</h3><p>{{ step[1] }}</p></div></article>{% endfor %}</div>
+  <div class="service-faq"><h2>A few useful answers.</h2>{% for faq in service.faqs %}<details><summary>{{ faq[0] }}</summary><p>{{ faq[1] }}</p></details>{% endfor %}</div>
+  <div class="service-next"><h2>Start with the problem.</h2><p>Tell us what you’re working on and where you need a hand. We’re available to teams in Scandinavia, North Macedonia, and worldwide.</p><a href="{{ '/' | relative_url }}#contact">Let’s talk <span aria-hidden="true">→</span></a></div>
+</section>

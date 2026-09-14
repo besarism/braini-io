@@ -1,0 +1,22 @@
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="contact-intro reveal">
+    <span class="eyebrow">03 / YOUR NEXT PROJECT</span>
+    <h2 id="contact-title">Let’s make<br>it happen.</h2>
+    <p>A new product. A better platform. A hard problem.<br> Tell us what you’re thinking.</p>
+    <div class="contact-email"><span>Prefer email?</span><a href="mailto:hello@proj0.io">hello@proj0.io</a></div>
+  </div>
+  <form class="contact-form reveal" id="project-inquiry" aria-labelledby="inquiry-title" action="https://formspree.io/{{ site.formspree_form_path }}" method="post">
+    <h3 id="inquiry-title">Start a conversation</h3>
+    <div class="form-honeypot" aria-hidden="true"><label for="inquiry-website">Leave this field empty</label><input id="inquiry-website" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="_subject" value="New project inquiry from Project 0">
+    <div class="form-row">
+      <div class="form-field"><label for="inquiry-name">Your name</label><input id="inquiry-name" name="name" autocomplete="name" placeholder="Alex Morgan" required maxlength="100" aria-describedby="name-error"><p class="field-error" id="name-error" hidden></p></div>
+      <div class="form-field"><label for="inquiry-email">Email address</label><input id="inquiry-email" name="email" type="email" autocomplete="email" placeholder="alex@company.com" required maxlength="254" aria-describedby="email-error"><p class="field-error" id="email-error" hidden></p></div>
+    </div>
+    <div class="form-field"><label for="inquiry-company">Company <span>(optional)</span></label><input id="inquiry-company" name="company" autocomplete="organization" placeholder="Your company" maxlength="150"></div>
+    <div class="form-field"><label for="inquiry-message">What do you have in mind?</label><textarea id="inquiry-message" name="message" rows="4" placeholder="The idea, the challenge, or what you’d like to improve…" required maxlength="5000" aria-describedby="message-error"></textarea><p class="field-error" id="message-error" hidden></p></div>
+    <div class="form-submit"><p>A few lines is all we need<br>to get things started.</p><button type="submit">Send message <span aria-hidden="true">→</span></button></div>
+    <p id="inquiry-status" class="form-status" role="status" hidden></p>
+    <p class="form-privacy">We use your details to respond to your enquiry. <a href="{{ "/legal" | relative_url }}">Privacy policy</a></p>
+  </form>
+</section>

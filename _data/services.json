@@ -1,0 +1,338 @@
+[
+  {
+    "name": "App development",
+    "short": "Apps",
+    "heading": "A good idea.<br>A great experience.",
+    "copy": "Native and cross-platform apps with considered interfaces, reliable performance, and engineering that lasts.",
+    "tags": [
+      "iOS & Android",
+      "Cross-platform",
+      "Product engineering"
+    ],
+    "icon": "<rect x=\"7\" y=\"3\" width=\"22\" height=\"30\" rx=\"4\"/><path d=\"M14 7h8M14 28h8\"/><path class=\"accent\" d=\"M12 20l4-4 3 3 5-6\"/>",
+    "slug": "app-development",
+    "title": "Mobile App Development",
+    "description": "Mobile app development for iOS and Android. Project 0 designs and builds native and cross-platform apps, with the backend systems behind them.",
+    "intro": "An app should make a useful idea easy to use. We connect product thinking, interface design, and mobile engineering so the experience holds together from the first screen to the systems behind it.",
+    "audience": "For teams launching a new mobile product, improving an existing app, or bringing a service to iOS and Android.",
+    "offers": [
+      [
+        "iOS and Android apps",
+        "Native and cross-platform development, with the approach chosen around the experience, device features, and maintenance needs of your product."
+      ],
+      [
+        "Product flows and interface design",
+        "Turn a rough idea into clear journeys, prototypes, and interfaces. Work through onboarding, core tasks, empty states, and the details people meet every day."
+      ],
+      [
+        "Connected product engineering",
+        "Build the APIs, authentication, and integrations an app depends on. Consider loading, failures, and unreliable connections as part of the experience."
+      ]
+    ],
+    "steps": [
+      [
+        "Define the first useful release",
+        "Map the users, key tasks, platform requirements, and existing systems. Agree on a focused scope before implementation."
+      ],
+      [
+        "Design and build together",
+        "Prototype important journeys and ship working increments. Review real screens and behaviours as the product takes shape."
+      ],
+      [
+        "Prepare for real-world use",
+        "Test on target devices, review performance and accessibility, and work through release and ongoing maintenance requirements."
+      ]
+    ],
+    "faqs": [
+      [
+        "Native or cross-platform: which should we choose?",
+        "It depends on the device capabilities, interface requirements, team, and expected lifetime of the app. We assess those trade-offs before recommending an approach."
+      ],
+      [
+        "Can you work on an existing app?",
+        "Yes. We can review the current product and codebase, identify the constraints, and plan targeted improvements or a larger rebuild around what is worth keeping."
+      ]
+    ],
+    "url": "/services/app-development/"
+  },
+  {
+    "name": "Backend & cloud",
+    "short": "Backend & cloud",
+    "heading": "The part that<br>holds it all together.",
+    "copy": "APIs, authentication, data, and cloud infrastructure. Built to keep your product dependable as it grows.",
+    "tags": [
+      "APIs & integrations",
+      "Cloud infrastructure",
+      "Observability"
+    ],
+    "icon": "<path d=\"M18 12v7M7 25v-6h22v6\"/><rect x=\"10\" y=\"3\" width=\"16\" height=\"9\" rx=\"2\"/><rect x=\"2\" y=\"25\" width=\"10\" height=\"8\" rx=\"2\"/><rect x=\"24\" y=\"25\" width=\"10\" height=\"8\" rx=\"2\"/><path class=\"accent\" d=\"M15 7h6M28 29h2\"/>",
+    "slug": "backend-cloud",
+    "title": "Backend & Cloud Development",
+    "description": "Backend development, API integrations, and cloud infrastructure for growing products. Project 0 builds dependable systems and helps improve existing platforms.",
+    "intro": "Your customers may never see the backend, but they feel every delay and failure. We build the APIs, data flows, and cloud infrastructure that keep a product working as its demands change.",
+    "audience": "For teams building a platform, connecting services, or dealing with a backend that has become difficult to operate or change.",
+    "offers": [
+      [
+        "APIs and integrations",
+        "Design and implement APIs, authentication flows, and connections between products and business systems, with clear contracts and useful error handling."
+      ],
+      [
+        "Cloud infrastructure",
+        "Set up deployment environments and automation around the product. Consider capacity, reliability, and operating costs together."
+      ],
+      [
+        "Observability and maintenance",
+        "Make it easier to understand how a system behaves. Plan logging, monitoring, and practical handover so failures can be investigated and changes made with confidence."
+      ]
+    ],
+    "steps": [
+      [
+        "Understand the dependencies",
+        "Map the current architecture, data, integrations, and operational requirements. Identify the constraints that will shape the implementation."
+      ],
+      [
+        "Build in manageable increments",
+        "Agree on interfaces and deliver the system in testable parts. Validate assumptions about data and traffic before they become expensive."
+      ],
+      [
+        "Make operation part of delivery",
+        "Review deployment, monitoring, documentation, and ownership alongside the code. A backend needs to be understandable after launch."
+      ]
+    ],
+    "faqs": [
+      [
+        "Do we need to move everything to a new platform?",
+        "Not necessarily. An architecture review can help separate genuine limitations from problems that can be solved with smaller changes."
+      ],
+      [
+        "Can you help with cloud costs?",
+        "We can review usage, architecture, and operational practices to identify opportunities. Recommendations depend on measured workloads and reliability requirements."
+      ]
+    ],
+    "url": "/services/backend-cloud/"
+  },
+  {
+    "name": "AI & machine learning",
+    "short": "AI & ML",
+    "heading": "Intelligence.<br>With a purpose.",
+    "copy": "Models, LLM integrations, and automation connected to real workflows. Useful AI, built around your product.",
+    "tags": [
+      "LLM integrations",
+      "Intelligent automation",
+      "Custom models"
+    ],
+    "icon": "<rect x=\"9\" y=\"9\" width=\"18\" height=\"18\" rx=\"3\"/><path d=\"M13 2v7M23 2v7M13 27v7M23 27v7M2 13h7M2 23h7M27 13h7M27 23h7\"/><path class=\"accent\" d=\"M14 21l4-8 4 8M16 18h4\"/>",
+    "slug": "ai-machine-learning",
+    "title": "AI & Machine Learning Development",
+    "description": "AI development, LLM integrations, and workflow automation. Project 0 connects useful intelligence to real products and business processes.",
+    "intro": "Start with a task worth improving. We help teams explore, evaluate, and integrate AI into products and workflows, with attention to the data, limitations, and human decisions around it.",
+    "audience": "For teams exploring an AI feature, connecting a language model to an existing product, or automating a repetitive workflow.",
+    "offers": [
+      [
+        "LLM integrations",
+        "Connect language models to product features and relevant context. Define the expected output, handle failures, and design a useful experience around the model."
+      ],
+      [
+        "Workflow automation",
+        "Identify repeatable steps and integrate automation with existing tools and systems. Keep review and escalation available where a person needs to make the decision."
+      ],
+      [
+        "Custom models and evaluation",
+        "Assess whether an existing model meets the task or a more tailored approach is needed. Use representative examples and explicit evaluation criteria."
+      ]
+    ],
+    "steps": [
+      [
+        "Define a measurable use case",
+        "Agree on the problem, available data, acceptable outcomes, and failure cases. Decide what a useful result would look like before selecting a model."
+      ],
+      [
+        "Prototype and evaluate",
+        "Test an approach against realistic examples. Compare output quality, latency, and cost, then use the results to guide the next iteration."
+      ],
+      [
+        "Integrate with the product",
+        "Connect the chosen approach to the application and its operating environment. Include monitoring, fallbacks, and user feedback."
+      ]
+    ],
+    "faqs": [
+      [
+        "Does every AI project need a custom model?",
+        "No. An existing model with suitable context and integration may be enough. The choice should follow the task and evaluation results."
+      ],
+      [
+        "How do you handle unreliable model output?",
+        "We define evaluation cases and failure behaviour as part of the design. Depending on the task, that can include validation, restricted actions, human review, and a fallback experience."
+      ]
+    ],
+    "url": "/services/ai-machine-learning/"
+  },
+  {
+    "name": "Design & UX",
+    "short": "Design & UX",
+    "heading": "Feels right.<br>Works even better.",
+    "copy": "Research, flows, interfaces, and prototypes. Shape an experience around what people actually need to do.",
+    "tags": [
+      "User research",
+      "UI & UX",
+      "Prototyping"
+    ],
+    "icon": "<rect x=\"5\" y=\"5\" width=\"26\" height=\"26\" rx=\"1\"/><path d=\"M5 14h26M14 14v17\"/><circle class=\"accent\" cx=\"5\" cy=\"5\" r=\"3\"/><path class=\"accent\" d=\"M21 21l9 3-5 2-2 5z\"/>",
+    "slug": "design-ux",
+    "title": "UI & UX Design",
+    "description": "UI and UX design for apps and digital products. Project 0 combines user research, interface design, and prototyping with practical engineering.",
+    "intro": "Good design makes the next step clear. We work through how a product should behave, what people need to understand, and how the interface can support their work.",
+    "audience": "For teams shaping a new product, improving a difficult user journey, or bringing consistency to an existing interface.",
+    "offers": [
+      [
+        "User research and product flows",
+        "Understand the task, the people doing it, and the points where the current experience breaks down. Translate those findings into focused journeys."
+      ],
+      [
+        "Interface design",
+        "Design screens and reusable interface patterns with clear hierarchy, useful feedback, and considered responsive behaviour."
+      ],
+      [
+        "Interactive prototypes",
+        "Make important interactions tangible before development. Use prototypes to discuss behaviour, test assumptions, and resolve uncertainty."
+      ]
+    ],
+    "steps": [
+      [
+        "Frame the design problem",
+        "Review the existing experience and understand user goals, business needs, and technical constraints. Choose the journeys that matter most."
+      ],
+      [
+        "Explore and validate",
+        "Develop flows and prototypes, review them with the team, and use feedback to refine the direction before polishing the details."
+      ],
+      [
+        "Design for implementation",
+        "Prepare states, responsive layouts, and reusable patterns. Work with engineering to carry the intended behaviour into the finished product."
+      ]
+    ],
+    "faqs": [
+      [
+        "Can you design something our own developers will build?",
+        "Yes. We can work alongside an internal team and prepare designs, interaction states, and implementation guidance around its needs."
+      ],
+      [
+        "Do you redesign whole products or individual journeys?",
+        "Both. The scope can be a single difficult flow, a set of interface patterns, or a broader product redesign. We start with the problem that needs solving."
+      ]
+    ],
+    "url": "/services/design-ux/"
+  },
+  {
+    "name": "Digital growth",
+    "short": "Growth",
+    "heading": "Build the product.<br>Grow the business.",
+    "copy": "Strategy, performance marketing, SEO, and creative content that connect your work with the right audience.",
+    "tags": [
+      "Growth strategy",
+      "SEO & performance",
+      "Creative content"
+    ],
+    "icon": "<path d=\"M4 31h28M7 26v-8h6v8M17 26V13h6v13M27 26V7\"/><path class=\"accent\" d=\"M5 12l9-6 5 3 12-7M25 2h6v6\"/>",
+    "slug": "digital-growth",
+    "title": "Digital Growth & SEO",
+    "description": "Digital growth strategy, SEO, performance marketing, and creative content. Project 0 helps connect your product with the people it is built for.",
+    "intro": "A useful product needs to reach the right people. We connect growth strategy, search visibility, and content with the experience visitors find when they arrive.",
+    "audience": "For teams preparing a launch, improving a marketing website, or making their acquisition efforts easier to measure and prioritise.",
+    "offers": [
+      [
+        "Growth strategy",
+        "Clarify the audience, offer, and conversion journey. Choose channels and experiments around the business rather than treating every channel as a requirement."
+      ],
+      [
+        "Search engine optimisation",
+        "Improve technical foundations, page structure, and useful service content. Build a plan around relevant search intent and track what changes after publication."
+      ],
+      [
+        "Performance and creative content",
+        "Develop landing pages, campaign content, and creative material that communicate the offer clearly and support measurable experiments."
+      ]
+    ],
+    "steps": [
+      [
+        "Establish the starting point",
+        "Review the website, audience, existing activity, and available measurement. Separate missing foundations from opportunities to experiment."
+      ],
+      [
+        "Improve the journey",
+        "Work on the pages and content people use to understand the offer. Connect campaign or search intent to a relevant destination and clear next step."
+      ],
+      [
+        "Measure and refine",
+        "Review meaningful outcomes and use the results to guide the next iteration. Keep changes focused enough to learn from them."
+      ]
+    ],
+    "faqs": [
+      [
+        "Can you guarantee search rankings?",
+        "No. Search visibility depends on competition, content, authority, and how search engines evaluate the site. We focus on useful improvements and measurable progress."
+      ],
+      [
+        "Can growth work start before a product launches?",
+        "Yes. Positioning, landing pages, search foundations, and launch content can be prepared alongside product development."
+      ]
+    ],
+    "url": "/services/digital-growth/"
+  },
+  {
+    "name": "Technical consulting",
+    "short": "Consulting",
+    "heading": "A clearer view.<br>A better next move.",
+    "copy": "Architecture reviews, cost optimization, and technical strategy. Find the next step with people who build these systems.",
+    "tags": [
+      "Architecture audits",
+      "Cost optimization",
+      "Technical direction"
+    ],
+    "icon": "<circle cx=\"18\" cy=\"18\" r=\"14\"/><path d=\"M18 4v4M18 28v4M4 18h4M28 18h4\"/><path class=\"accent\" d=\"M23 12l-3 8-8 4 4-9z\"/>",
+    "slug": "technical-consulting",
+    "title": "Technical Consulting & Architecture Reviews",
+    "description": "Software architecture reviews, cloud cost optimisation, and technical strategy. Project 0 helps teams make clear, practical engineering decisions.",
+    "intro": "A technical decision should make the next step clearer. We review systems and plans with people who build them, then turn the findings into practical recommendations.",
+    "audience": "For teams facing an architecture decision, an expensive or unreliable platform, or uncertainty about how to improve an existing system.",
+    "offers": [
+      [
+        "Architecture reviews",
+        "Examine how a system is structured, where its dependencies sit, and which constraints matter. Connect findings to the product and the team operating it."
+      ],
+      [
+        "Cost and operational reviews",
+        "Review infrastructure usage and operational practices. Identify trade-offs and prioritise opportunities against reliability and delivery needs."
+      ],
+      [
+        "Technical direction",
+        "Work through options for a new product or a major change. Make the reasoning, assumptions, and consequences clear enough for the team to act on."
+      ]
+    ],
+    "steps": [
+      [
+        "Agree on the decision to support",
+        "Define the questions, systems, and available evidence. Establish what the review should help the team decide."
+      ],
+      [
+        "Investigate and discuss",
+        "Review architecture, code, and operational information where relevant. Discuss findings with the people closest to the system."
+      ],
+      [
+        "Deliver an actionable plan",
+        "Explain the options and trade-offs, prioritise recommendations, and identify the next steps. Continue into implementation where that is useful."
+      ]
+    ],
+    "faqs": [
+      [
+        "Does a review commit us to a rebuild?",
+        "No. The outcome may be a targeted improvement, a change in process, or a reason to keep the current approach. Recommendations should follow the evidence."
+      ],
+      [
+        "Can you work with our existing engineering team?",
+        "Yes. Consulting can support an internal team with an independent review, a focused investigation, or ongoing technical guidance."
+      ]
+    ],
+    "url": "/services/technical-consulting/"
+  }
+]

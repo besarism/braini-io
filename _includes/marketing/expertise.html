@@ -1,0 +1,18 @@
+<span id="services" class="anchor-alias" aria-hidden="true"></span>
+<section class="expertise" id="expertise" aria-labelledby="expertise-title">
+  <div class="section-top"><span class="eyebrow">01 / OUR EXPERTISE</span><span class="side-note">THE WHOLE PICTURE.<br>DOWN TO THE DETAILS.</span></div>
+  <div class="section-heading reveal"><h2 id="expertise-title">From interface<br>to infrastructure<span>.</span></h2><p>The part people see. The systems they don’t.<br>We bring them together.</p></div>
+  <div class="expertise-layout">
+    <div class="service-selector"><p class="service-prompt">Choose a service to explore</p><div class="service-nav" role="tablist" aria-label="Our services">
+    {% for service in site.data.services %}<button type="button" role="tab" id="service-tab-{{ forloop.index0 }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="service-panel-{{ forloop.index0 }}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}" data-service="{{ forloop.index0 }}"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ service.icon }}</svg><span class="service-name">{{ service.name }}</span><span class="service-check" aria-hidden="true">✓</span></button>{% endfor %}
+    </div></div>
+    <div class="service-panels">{% for service in site.data.services %}
+      <div class="service-stage" id="service-panel-{{ forloop.index0 }}" role="tabpanel" aria-labelledby="service-tab-{{ forloop.index0 }}" tabindex="0" {% unless forloop.first %}hidden{% endunless %}>
+        <div class="service-stage-top"><span>0{{ forloop.index }} / {{ service.name | upcase }}</span><span class="stage-counter">PROJECT 0 — CAPABILITIES</span></div>
+        <div class="service-art" data-art="{{ forloop.index0 }}" aria-hidden="true"></div>
+        <div class="service-description"><h3>{{ service.heading }}</h3><p>{{ service.copy }}</p><div class="service-tags">{% for tag in service.tags %}<span>{{ tag }}</span>{% endfor %}</div><a class="service-detail-link" href="{{ service.url | relative_url }}">Explore {{ service.name }} <span aria-hidden="true">→</span></a></div>
+      </div>{% endfor %}
+    </div>
+  </div>
+  <noscript><p class="no-script-services">Explore all our services: {% for service in site.data.services %}<a href="{{ service.url | relative_url }}">{{ service.name }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p></noscript>
+</section>

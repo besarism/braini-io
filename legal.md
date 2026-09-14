@@ -1,39 +1,28 @@
 ---
 layout: page
 title: Privacy Policy
-background: grey
+description: "How Project 0 handles contact enquiries and information about visits to this website."
+permalink: /legal
+sitemap: true
 ---
+Updated 15 September 2026.
 
-<div class="col-lg-12 text-center">
-	<h2 class="section-heading text-uppercase">Privacy Policy</h2>
-</div>
+## Contact enquiries
 
-This Privacy Policy describes how your personal information is collected, used, and shared when you visit {{ site.title }} (the “Site”).
+When you contact Project 0 through this website, you provide your name, email address, optional company name, and message. We use this information to respond to your enquiry and discuss the work you have asked about. Please include only information relevant to your project.
 
-**PERSONAL INFORMATION WE COLLECT**
+Our contact form uses [Formspree](https://formspree.io/legal/privacy-policy/) to process submissions. Formspree may also process technical information for delivery and spam prevention. You can contact us directly at [hello@proj0.io](mailto:hello@proj0.io) if you prefer email.
 
-{% if site.analytics.google %}
+## Website hosting and measurement
 
-Automatically Collected (Google Analytics):
+This website is hosted with GitHub Pages. GitHub records visitor IP addresses for security purposes; see [GitHub’s privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
-When you visit the Site, we automatically receive information about your device from your browser, such as your IP address. As you browse the Site, we also collect information about how you interact with the Site. We refer to this automatically-collected information as “Device Information”.
+This version of the site does not include advertising trackers or Google Analytics. Fonts are served from this website.
 
-We collect Device Information using cookies. “Cookies” are data files that are placed on your device. For more information about cookies and how to disable them, visit http://www.allaboutcookies.org.
+## Questions about your information
 
-We do this using Google Analytics: <https://www.google.com/intl/en/policies/privacy/>.
+Contact [hello@proj0.io](mailto:hello@proj0.io) with questions about your information or to request access, correction, or deletion. We will review your request and explain any information that needs to be retained.
 
-You can opt-out of Google Analytics here: <https://tools.google.com/dlpage/gaoptout>.
+## Changes
 
-{% else %}
-
-We do not collect any data about you or use any cookies.
-
-{% endif %}
-
-**CHANGES**
-
-We may update this privacy policy from time to time for personal, operational, legal, or regulatory reasons.
-
-**CONTACT US**
-
-For more information about our privacy practices or if you have questions, please contact us by email at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+We may update this page when the website or the way we handle enquiries changes.

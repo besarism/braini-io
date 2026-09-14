@@ -1,0 +1,11 @@
+{% unless page.noindex %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"{{ '/' | absolute_url }}#organization","name":"Project 0","alternateName":"proj0","url":{{ '/' | absolute_url | jsonify }},"email":{{ site.email | jsonify }},"logo":{{ '/assets/img/brand/logo-square.png' | absolute_url | jsonify }},"description":{{ site.description | jsonify }}},
+{"@type":"WebSite","@id":"{{ '/' | absolute_url }}#website","url":{{ '/' | absolute_url | jsonify }},"name":"Project 0","inLanguage":"en","publisher":{"@id":"{{ '/' | absolute_url }}#organization"}},
+{"@type":"WebPage","@id":"{{ canonical_url }}#webpage","url":{{ canonical_url | jsonify }},"name":{{ seo_title | jsonify }},"description":{{ seo_description | jsonify }},"inLanguage":"en","isPartOf":{"@id":"{{ '/' | absolute_url }}#website"}}
+{% if page.service_slug %},{"@type":"Service","name":{{ page.title | jsonify }},"serviceType":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"url":{{ canonical_url | jsonify }},"provider":{"@id":"{{ '/' | absolute_url }}#organization"}},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":{{ '/' | absolute_url | jsonify }}},{"@type":"ListItem","position":2,"name":{{ page.title | jsonify }},"item":{{ canonical_url | jsonify }}}]}{% endif %}
+]}
+</script>
+{% endunless %}

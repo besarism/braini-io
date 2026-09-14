@@ -4,11 +4,11 @@
 url: "https://proj0.io"
 baseurl: ""
 
-title: proj0
+title: Project 0
 email: hello@proj0.io
-description: "We build the projects behind the projects"
+description: "Custom software development, mobile apps, AI integrations, and cloud infrastructure for teams in Scandinavia, North Macedonia, and worldwide."
 author: proj0
-logo: assets/img/logo.png
+logo: /assets/img/brand/logo-square.png
 
 # Agency theme settings
 agency:
@@ -36,7 +36,38 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/img/og/proj0-og.jpg
+      image: /assets/img/og/project-0.jpg
 
-# Formspree - Replace YOUR_FORM_ID with actual Formspree form ID
+# Existing Formspree endpoint for project enquiries
 formspree_form_path: "f/mdanqzdl"
+
+# Keep development files and unused legacy theme assets out of the published site.
+exclude:
+  - README.md
+  - docs
+  - scripts
+  - Gemfile
+  - Gemfile.lock
+  - jekyll-agency.gemspec
+  - screenshot.PNG
+  - tilt
+  - assets/css/agency.scss
+  - assets/css/modern.css
+  - assets/css/bootstrap.min.css
+  - assets/css/bootstrap.min.css.map
+  - assets/css/all.min.css
+  - assets/css/webfonts
+  - assets/js/contact_me.js
+  - assets/js/jquery.min.js
+  - assets/js/jqBootstrapValidation.js
+  - assets/js/jquery.easing.min.js
+  - assets/js/bootstrap.bundle.min.js
+  - assets/js/bootstrap.bundle.min.js.map
+  - assets/js/agency.min.js
+  - assets/img/portfolio
+  - assets/img/team
+  - assets/img/timeline
+  - assets/img/clients
+  - assets/img/logo.png.placeholder
+  - assets/img/favicon.png.placeholder
+  - assets/img/og/proj0-og.jpg.placeholder
